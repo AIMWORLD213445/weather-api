@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -62,8 +63,11 @@ public class WeatherService {
                     } else {
                         rain = listJSON.getString("rain");
                     }
+                    long time = listJSON.getLong("dt") * 1000;
 
-                    Weather weather = new Weather(day, min, max, night, eve, morn, pressure, humidity, main, description, deg, speed, clouds, rain);
+                    Date date = new Date(time);
+
+                    Weather weather = new Weather(day, min, max, night, eve, morn, pressure, humidity, main, description, deg, speed, clouds, rain, date.toString());
                     weathers.add(weather);
                 }
         } catch (JSONException e) {
