@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -40,6 +41,8 @@ public class WeatherService {
                 String jsonData = Data;
                 JSONObject weatherJSON = new JSONObject(jsonData);
                 JSONArray list = weatherJSON.getJSONArray("list");
+                String name = weatherJSON.getJSONObject("city").getString("name");
+                String country = weatherJSON.getJSONObject("city").getString("country");
                 for (int i = 0; i < list.length(); i++) {
                     JSONObject listJSON = list.getJSONObject(i);
                     String pressure = listJSON.getString("pressure");
@@ -67,7 +70,11 @@ public class WeatherService {
 
                     Date date = new Date(time);
 
-                    Weather weather = new Weather(day, min, max, night, eve, morn, pressure, humidity, main, description, deg, speed, clouds, rain, date.toString());
+                    SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
+                    String DateToStr = format.format(date);
+
+
+                    Weather weather = new Weather(day, min, max, night, eve, morn, pressure, humidity, main, description, deg, speed, clouds, rain, DateToStr.toString(), name, country);
                     weathers.add(weather);
                 }
         } catch (JSONException e) {

@@ -21,9 +21,10 @@ public class Weather {
     private String mClouds;
     private String mRain;
     private String mTime;
+    private String mName;
+    private String mCountry;
 
-
-    public Weather(String day, String min, String max, String night, String eve, String morn, String pressure, String humidity, String main, String description, String deg, String speed, String clouds, String rain, String time) {
+    public Weather(String day, String min, String max, String night, String eve, String morn, String pressure, String humidity, String main, String description, String deg, String speed, String clouds, String rain, String time, String name, String country) {
         this.mDay = day;
         this.mMin = min;
         this.mMax = max;
@@ -39,6 +40,8 @@ public class Weather {
         this.mClouds = clouds;
         this.mRain = rain;
         this.mTime = time;
+        this.mCountry = country;
+        this.mName = name;
     }
     public String getDay() {
         return mDay;
@@ -81,6 +84,12 @@ public class Weather {
     }
     public String getTime() {
         return mTime;
+    }
+    public String getName() {
+        return mName;
+    }
+    public String getCountry() {
+        return mCountry;
     }
     public String getHumidity() {
         return mHumidity;
