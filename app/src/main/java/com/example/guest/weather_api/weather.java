@@ -74,7 +74,7 @@ public class Weather {
     public String getClouds() {
         return mClouds;
     }
-    public String getRainy() {
+    public String getRain() {
         return mRain;
     }
     public String getmHumidity() {

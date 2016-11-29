@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             String[] DayData = new String[mWeathers.size()];
                             for (int i = 0; i < DayData.length; i++) {
-                                DayData[i] = mWeathers.get(i).getDay();
+                                DayData[i] = mWeathers.get(i).getRain();
                             }
                             ArrayAdapter adapter = new ArrayAdapter(MainActivity.this,
                                     android.R.layout.simple_list_item_1, DayData);

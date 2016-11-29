@@ -57,7 +57,11 @@ public class WeatherService {
                     String deg = listJSON.getString("deg");
                     String clouds = listJSON.getString("clouds");
                     String rain = "0";
-
+                    if (listJSON.isNull("rain")) {
+                        rain = "0";
+                    } else {
+                        rain = listJSON.getString("rain");
+                    }
 
                     Weather weather = new Weather(day, min, max, night, eve, morn, pressure, humidity, main, description, deg, speed, clouds, rain);
                     weathers.add(weather);
