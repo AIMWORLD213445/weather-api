@@ -1,10 +1,13 @@
 package com.example.guest.weather_api;
 
+
+import org.parceler.Parcel;
 import java.util.ArrayList;
 
 /**
  * Created by Guest on 11/29/16.
  */
+@Parcel
 public class Weather {
     private String mDay;
     private String mMin;
@@ -23,6 +26,8 @@ public class Weather {
     private String mTime;
     private String mName;
     private String mCountry;
+
+    public Weather() {}
 
     public Weather(String day, String min, String max, String night, String eve, String morn, String pressure, String humidity, String main, String description, String deg, String speed, String clouds, String rain, String time, String name, String country) {
         this.mDay = day;

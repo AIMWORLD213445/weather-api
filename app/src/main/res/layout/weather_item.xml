@@ -20,24 +20,5 @@
             android:text="Date:"
             android:textColor="@color/colorPrimary"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="High Temperature:"
-            android:id="@+id/highTemp"
-            android:layout_below="@+id/weatherTime"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textStyle="italic"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Low Temperature:"
-            android:id="@+id/lowTemp"
-            android:layout_below="@+id/highTemp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textStyle="italic"/>
     </LinearLayout>
 </LinearLayout>
