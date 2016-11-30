@@ -52,9 +52,26 @@ public class WeatherDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_weather_detail, container, false);
         ButterKnife.bind(this, view);
         mDateTile.setText(mWeather.getTime());
+
+        int id = 0;
+
+        if (mWeather.getMain().equals("Clear")) {
+            id = R.string.wi_forecast_io_clear_day;
+        } else if (mWeather.getMain().equals("Rain")) {
+            id = R.string.wi_day_rain;
+        }
+        else if (mWeather.getMain().equals("Storm")) {
+            id = R.string.wi_day_lightning;
+        }
+        else if (mWeather.getMain().equals("Snow")) {
+            id = R.string.wi_day_snow;
+        } else {
+            id = R.string.wi_volcano;
+        }
+
         mWeatherInfo.setTypeface(FontManager.getTypeface(getActivity(), "weathericons.ttf"));
 
-        mWeatherInfo.setText(FontManager.setIcon(getActivity(),R.string.wi_night_alt_lightning));
+        mWeatherInfo.setText(FontManager.setIcon(getActivity(),id));
 
         String DayData = "";
         DayData += "The High will be " + mWeather.getMax() + " F";
