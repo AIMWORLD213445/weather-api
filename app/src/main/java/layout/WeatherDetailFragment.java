@@ -1,9 +1,11 @@
 package layout;
 
 import android.content.Context;
-import android.net.Uri;
+import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.guest.weather_api.R;
 import com.example.guest.weather_api.Weather;
+import com.example.guest.weather_api.adapters.FontManager;
 
 import org.parceler.Parcels;
 
@@ -21,6 +24,7 @@ public class WeatherDetailFragment extends Fragment {
     @Bind(R.id.DateTitle) TextView mDateTile;
     @Bind(R.id.WeatherInfo) TextView mWeatherInfo;
     @Bind(R.id.WeatherData) TextView mWeatherData;
+    Context context;
 
     private Weather mWeather;
 
@@ -48,7 +52,10 @@ public class WeatherDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_weather_detail, container, false);
         ButterKnife.bind(this, view);
         mDateTile.setText(mWeather.getTime());
-        mWeatherInfo.setText(mWeather.getDescription());
+        mWeatherInfo.setTypeface(FontManager.getTypeface(getActivity(), "weathericons.ttf"));
+
+        mWeatherInfo.setText(FontManager.setIcon(getActivity(),R.string.wi_night_alt_lightning));
+
         String DayData = "";
         DayData += "The High will be " + mWeather.getMax() + " F";
         DayData += "\nThe AVG will be " + mWeather.getDay()+ " F";

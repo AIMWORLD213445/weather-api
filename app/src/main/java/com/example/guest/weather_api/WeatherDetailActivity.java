@@ -1,8 +1,10 @@
 package com.example.guest.weather_api;
 
+import android.graphics.Typeface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.guest.weather_api.adapters.WeatherPagerAdapters;
 
